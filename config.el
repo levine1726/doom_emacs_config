@@ -46,7 +46,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/code/org/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -88,3 +88,20 @@
 (map! :n "C-h" 'evil-window-left)
 (map! :n "C-k" 'evil-window-up)
 (map! :n "C-j" 'evil-window-down)
+
+;; Org mode settings
+(after! org
+  (require 'org-tempo)
+  (set-popup-rule! "^ \\*Org tags" :side 'bottom :size 0.80 :select t :ttl nil)
+
+  (setq org-priority-faces'((?A :foreground "#e45649")
+                            (?B :foreground "#da8548")
+                            (?C :foreground "0098dd"))
+        org-todo-keywords '((sequence "TODO(t)" "INPROGRESS(i)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)"))
+        org-todo-keyword-faces
+        '(("TODO" :foreground "#7c7c75" :weight normal :underline t)
+          ("WAITING" :foreground "#9f7efe" :weight normal :underline t)
+          ("INPROGRESS" :foreground "#9f7efe" :weight normal :underline t)
+          ("DONE" :foreground "#50a14f" :weight normal :underline t)
+          ("CANCELLED" :foreground "#ff6480" :weight normal :underline t)
+          )))
