@@ -1,0 +1,5 @@
+* DOOM emacs
+** Basic install procedures:
+1. Follow doom emacs documentation - done!
+2. Shove these files in ~/config/doom
+3. =doom sync= away!
